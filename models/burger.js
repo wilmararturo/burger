@@ -11,7 +11,9 @@ const burger = {
             cb(res);
         })
     },
-    update: function (colValuesObj, condition, cb) {
+    update: function (id, cb) {
+        const condition = `id=${id}`;
+        const colValuesObj = { devoured: true };
         orm.updateOne("burgers", colValuesObj, condition, (res) => {
             cb(res);
         })
