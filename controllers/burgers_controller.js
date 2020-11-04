@@ -7,11 +7,15 @@ router.get("/", (req, res) => {
 
 });
 
-router.post("/api/burgers", (req, red) => {
+router.get("/burgers", (req, res) => {
 
 });
 
-router.put("/api/burgers/:id", (req, res) => {
+router.post("/burgers/create", (req, red) => {
+
+});
+
+router.put("/burgers/:id", (req, res) => {
 
 });
 
