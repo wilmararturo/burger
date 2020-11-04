@@ -1,14 +1,14 @@
 const express = require("express");
+const compression = require("compression");
 
 const PORT = process.env.PORT || 8080;
 
 const app = express();
 
 app.use(express.static("public"));
-
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(compression());
 
 const exphbs = require("express-handlebars");
 
