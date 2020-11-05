@@ -31,7 +31,9 @@ const orm = {
         let query = "INSERT INTO " + tableInput;
         query += " (" + columnNames.toString() + ")";
         query += " VALUES (?,?)";
-        connection.query(query, [columnValues], (err, res) => {
+        console.log(query);
+        console.log(columnValues);
+        connection.query(query, columnValues, (err, res) => {
             if (err) throw err;
             return cb(res);
         })
