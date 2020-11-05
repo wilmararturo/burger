@@ -13,20 +13,19 @@ router.get("/burgers", (req, res) => {
             burgers: data,
         };
         res.render("index", hbsObj);
-    })
-        .catch(err => res.json(err.message));
+    });
 
 });
 
 router.post("/burgers/create", (req, res) => {
-    burger.create(res.body.burger_name, (data) => {
+    burger.create(req.body.burger_name, (data) => {
         res.redirect("/");
     })
 
 });
 
 router.put("/burgers/:id", (req, res) => {
-    burger.update(res.params.id, (data) => {
+    burger.update(req.params.id, (data) => {
         res.sendStatus(200);
     })
 });

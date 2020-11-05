@@ -21,14 +21,14 @@ const objToSql = (obj) => {
 const orm = {
 
     selectAll: (tableInput, cb) => {
-        const query = `SELECT * FROM ${tableInput};`;
+        const query = `SELECT * FROM ${tableInput}`;
         connection.query(query, (err, res) => {
             if (err) throw err;
             return cb(res);
         });
     },
-    insertOne: (tableInput, colOne, valueOne, colTwo, valueTwo, cb) => {
-        const query = `INSERT INTO ${tableInput} (?,?) VALUES (?,?);`;
+    insertOne: (tableInput, colOne, colTwo, valueOne, valueTwo, cb) => {
+        const query = `INSERT INTO ${tableInput} (?,?) VALUES (?,?)`;
         connection.query(query, [colOne, colTwo, valueOne, valueTwo], (err, res) => {
             if (err) throw err;
             return cb(res);
@@ -37,7 +37,7 @@ const orm = {
     },
     updateOne: (tableInput, colValuesObj, condition, cb) => {
         const queryCondition = objToSql(colValuesObj);
-        const query = `UPDATE ${tableInput} SET ${queryCondition} WHERE ${condition};`
+        const query = `UPDATE ${tableInput} SET ${queryCondition} WHERE ${condition}`
         connection.query(query, (err, res) => {
             if (err) throw err;
             cb(result);
