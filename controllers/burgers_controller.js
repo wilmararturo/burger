@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 router.get("/burgers", (req, res) => {
     burger.all((data) => {
         const hbsObj = {
-            burgers: data,
+            burger_data: data,
         };
         res.render("index", hbsObj);
     });
