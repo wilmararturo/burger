@@ -31,8 +31,7 @@ const orm = {
         let query = "INSERT INTO " + tableInput;
         query += " (" + columnNames.toString() + ")";
         query += " VALUES (?,?)";
-        console.log(query);
-        console.log(columnValues);
+
         connection.query(query, columnValues, (err, res) => {
             if (err) throw err;
             return cb(res);
@@ -44,7 +43,7 @@ const orm = {
         const query = `UPDATE ${tableInput} SET ${queryCondition} WHERE ${condition}`
         connection.query(query, (err, res) => {
             if (err) throw err;
-            cb(result);
+            cb(res);
         })
     },
 
