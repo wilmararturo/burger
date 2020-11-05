@@ -62,6 +62,12 @@ body {
   margin-top: 10px;
   margin-bottom: 18px;
 }
+pre {
+  margin: auto;
+}
+.text-center {
+  margin: auto;
+}
 
 h1 {
   color: #f30;
