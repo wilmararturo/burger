@@ -27,9 +27,11 @@ const orm = {
             return cb(res);
         });
     },
-    insertOne: (tableInput, colOne, colTwo, valueOne, valueTwo, cb) => {
-        const query = `INSERT INTO ${tableInput} (?,?) VALUES (?,?)`;
-        connection.query(query, [colOne, colTwo, valueOne, valueTwo], (err, res) => {
+    insertOne: (tableInput, columnNames, columnValues, cb) => {
+        let query = "INSERT INTO " + tableInput;
+        query += " (" + columnNames.toString() + ")";
+        query += " VALUES (?,?)";
+        connection.query(query, [columnValues], (err, res) => {
             if (err) throw err;
             return cb(res);
         })
